@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from '../components/Button';
@@ -5,15 +6,15 @@ import AnimatedSection from '../components/AnimatedSection';
 
 const ContactInfoItem = ({ icon, title, content, href }: { icon: React.ReactNode; title: string; content: string; href?: string }) => (
     <div className="flex items-start">
-        <div className="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-gray-800 text-brand-red">
+        <div className="flex-shrink-0 h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-brand-red">
             {icon}
         </div>
         <div className="ml-4">
-            <h3 className="text-lg font-semibold text-white">{title}</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h3>
             {href ? (
-                 <a href={href} className="text-gray-400 hover:text-brand-red transition-colors">{content}</a>
+                 <a href={href} className="text-gray-600 dark:text-gray-400 hover:text-brand-red transition-colors">{content}</a>
             ) : (
-                <p className="text-gray-400">{content}</p>
+                <p className="text-gray-600 dark:text-gray-400">{content}</p>
             )}
         </div>
     </div>
@@ -47,13 +48,6 @@ const Contact = () => {
 
         try {
             // MOCK API SUBMISSION: Replace with an actual fetch POST request
-            // const response = await fetch('/api/contact', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(formData),
-            // });
-            // if (!response.ok) throw new Error('Network response was not ok.');
-            
             await new Promise(resolve => setTimeout(resolve, 1500)); // Simulating network delay
             console.log("Form submitted:", formData);
 
@@ -69,36 +63,36 @@ const Contact = () => {
 
 
     return (
-        <div className="py-24 bg-brand-dark">
+        <div className="py-24 bg-white dark:bg-brand-dark">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <AnimatedSection className="text-center">
-                    <h1 className="font-poppins text-5xl md:text-6xl font-extrabold text-white">Connect With <span className="text-brand-red">The Machine</span></h1>
-                    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Have questions? Ready to start? We're here to help you begin your transformation.</p>
+                    <h1 className="font-poppins text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-white">Connect With <span className="text-brand-red">The Machine</span></h1>
+                    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">Have questions? Ready to start? We're here to help you begin your transformation.</p>
                 </AnimatedSection>
 
                 <div className="mt-20 flex flex-col lg:flex-row gap-16">
                     {/* Contact Form */}
-                    <AnimatedSection className="lg:w-1/2 bg-black/30 border border-gray-800 p-8 rounded-lg">
-                        <h2 className="font-poppins text-3xl font-bold text-white mb-6">Send a Message</h2>
+                    <AnimatedSection className="lg:w-1/2 bg-gray-50 dark:bg-black/30 border border-gray-200 dark:border-gray-800 p-8 rounded-lg">
+                        <h2 className="font-poppins text-3xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h2>
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name</label>
-                                <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-brand-red focus:border-brand-red" />
+                                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
+                                <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 rounded-md shadow-sm py-3 px-4 text-gray-900 dark:text-white focus:outline-none focus:ring-brand-red focus:border-brand-red" />
                             </div>
                              <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email</label>
-                                <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-brand-red focus:border-brand-red" />
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                                <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 rounded-md shadow-sm py-3 px-4 text-gray-900 dark:text-white focus:outline-none focus:ring-brand-red focus:border-brand-red" />
                             </div>
                              <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
-                                <textarea name="message" id="message" rows={5} required value={formData.message} onChange={handleChange} className="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-brand-red focus:border-brand-red" />
+                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
+                                <textarea name="message" id="message" rows={5} required value={formData.message} onChange={handleChange} className="mt-1 block w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 rounded-md shadow-sm py-3 px-4 text-gray-900 dark:text-white focus:outline-none focus:ring-brand-red focus:border-brand-red" />
                             </div>
                             <div>
                                 <Button type="submit" variant="primary" className="w-full justify-center text-lg" disabled={isSubmitting}>
                                     {isSubmitting ? 'Sending...' : 'Send Message'}
                                 </Button>
                             </div>
-                            {status && <p className="text-center text-gray-400">{status}</p>}
+                            {status && <p className="text-center text-gray-600 dark:text-gray-400">{status}</p>}
                         </form>
                     </AnimatedSection>
 
@@ -133,7 +127,7 @@ const Contact = () => {
                                 allowFullScreen={false}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                className="rounded-lg filter grayscale invert contrast-125 opacity-80"
+                                className="rounded-lg dark:filter dark:grayscale dark:invert dark:contrast-125 dark:opacity-80"
                             ></iframe>
                          </div>
                      </AnimatedSection>

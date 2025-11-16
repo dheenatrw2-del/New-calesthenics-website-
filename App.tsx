@@ -8,6 +8,7 @@ import Programs from './pages/Programs';
 import About from './pages/About';
 import Transformations from './pages/Transformations';
 import Contact from './pages/Contact';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -21,22 +22,24 @@ const ScrollToTop = () => {
 
 function App() {
     return (
-        <HashRouter>
-            <ScrollToTop />
-            <div className="flex flex-col min-h-screen">
-                <Header />
-                <main className="flex-grow">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/programs" element={<Programs />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/transformations" element={<Transformations />} />
-                        <Route path="/contact" element={<Contact />} />
-                    </Routes>
-                </main>
-                <Footer />
-            </div>
-        </HashRouter>
+        <ThemeProvider>
+            <HashRouter>
+                <ScrollToTop />
+                <div className="flex flex-col min-h-screen">
+                    <Header />
+                    <main className="flex-grow">
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/programs" element={<Programs />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/transformations" element={<Transformations />} />
+                            <Route path="/contact" element={<Contact />} />
+                        </Routes>
+                    </main>
+                    <Footer />
+                </div>
+            </HashRouter>
+        </ThemeProvider>
     );
 }
 

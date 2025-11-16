@@ -75,8 +75,8 @@ const Home = () => {
             <AnimatedSection className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center gap-12">
                     <div className="md:w-1/2 text-center md:text-left">
-                        <h2 className="font-poppins text-4xl md:text-5xl font-bold">About <span className="text-brand-red">Us</span></h2>
-                        <p className="mt-6 text-lg text-gray-400">
+                        <h2 className="font-poppins text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">About <span className="text-brand-red">Us</span></h2>
+                        <p className="mt-6 text-lg text-gray-600 dark:text-gray-400">
                             Zero Machine was forged from a fundamental truth: the modern world makes us weak. We use calisthenics not as a workout, but as a path back to self-mastery. It teaches you to control your body, build strength from within, and cultivate a level of mental toughness that no machine in a gym can provide.
                         </p>
                         <div className="mt-8">
@@ -95,11 +95,11 @@ const Home = () => {
             {/* Transformations Slider */}
             <AnimatedSection className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center">
-                    <h2 className="font-poppins text-4xl md:text-5xl font-bold">Body <span className="text-brand-red">Transformation</span></h2>
-                    <p className="mt-4 text-gray-400 max-w-xl mx-auto">Change Your Life With Our Calisthenics Program.</p>
+                    <h2 className="font-poppins text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Body <span className="text-brand-red">Transformation</span></h2>
+                    <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">Change Your Life With Our Calisthenics Program.</p>
                 </div>
                 <div className="mt-12 max-w-4xl mx-auto relative min-h-[400px]">
-                    {loading && <div className="text-center text-gray-400">Loading Transformations...</div>}
+                    {loading && <div className="text-center text-gray-500 dark:text-gray-400">Loading Transformations...</div>}
                     {error && <div className="text-center text-brand-red">{error}</div>}
                     {!loading && !error && (
                         <>
@@ -110,25 +110,25 @@ const Home = () => {
                                             <div className="flex flex-col sm:flex-row gap-4">
                                                 <div className="w-full sm:w-1/2 relative">
                                                     <img src={item.beforeUrl} alt={`${item.name} before`} className="object-cover w-full h-full rounded" />
-                                                    <div className="absolute top-2 left-2 bg-black/50 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Before</div>
+                                                    <div className="absolute top-2 left-2 bg-black/50 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider text-white">Before</div>
                                                 </div>
                                                 <div className="w-full sm:w-1/2 relative">
                                                     <img src={item.afterUrl} alt={`${item.name} after`} className="object-cover w-full h-full rounded" />
-                                                    <div className="absolute top-2 left-2 bg-brand-red/80 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">After</div>
+                                                    <div className="absolute top-2 left-2 bg-brand-red/80 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider text-white">After</div>
                                                 </div>
                                             </div>
                                             <div className="text-center mt-6">
-                                                <h3 className="font-poppins text-2xl font-bold text-white">{item.name}</h3>
-                                                <p className="text-gray-400 mt-2 max-w-md mx-auto">"{item.story}"</p>
+                                                <h3 className="font-poppins text-2xl font-bold text-gray-900 dark:text-white">{item.name}</h3>
+                                                <p className="text-gray-600 dark:text-gray-400 mt-2 max-w-md mx-auto">"{item.story}"</p>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
-                            <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-16 bg-gray-800/70 p-3 rounded-full hover:bg-brand-red transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-brand-red">
+                            <button onClick={prevSlide} className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-16 bg-white/70 dark:bg-gray-800/70 p-3 rounded-full text-gray-900 dark:text-white hover:bg-brand-red hover:text-white transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-brand-red">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                             </button>
-                            <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-16 bg-gray-800/70 p-3 rounded-full hover:bg-brand-red transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-brand-red">
+                            <button onClick={nextSlide} className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-16 bg-white/70 dark:bg-gray-800/70 p-3 rounded-full text-gray-900 dark:text-white hover:bg-brand-red hover:text-white transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-brand-red">
                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                             </button>
                         </>
